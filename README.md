@@ -10,7 +10,6 @@ This API exists because the CORS policy for the Roku box is configured in such a
 - See [`config/routes.rb`](./config/routes.rb) for the available API methods.
 - I recommend [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) for testing these routes.
 
-
 ## Ruby version
 
 This was built on a Mac OSX.
@@ -24,6 +23,23 @@ ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-darwin15]
 - A Roku box
 - Access to your LAN (Local Area Network)
 - There is barely any information actually being stored, so the default SQLite is fine: See [`app/models/roku_box.rb`](./app/models/roku_box.rb) for details on what info you'll need.
+
+## Creating the `RokuBox` record
+
+**Note:** There is no interface for doing this yet, so until then:
+
+1. Open rails console `bundle exec rails console`
+
+2. Create a new record:
+
+```ruby
+roku = RokuBox.new
+roku.name = "Living Room" # This isn't really necessary unless you plan on storing multiple records.
+roku.ip_address = "ROKU.IP.ADDR.ESS"
+# Note: roku.port is configurable, but the default in their documentation is :8060, so you shouldn't have to actually set this.
+roku.save
+```
+3. You should now be able to make POST requests to the Roku box.
 
 ## API Methods
 
