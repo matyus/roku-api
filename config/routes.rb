@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post "/apps" => "application#apps"
+  post "/active-app" => "application#active_app"
+  post "/keypress/:command" => "application#keypress"
+  post "/launch-app/:app_id" => "application#launch_app"
 end

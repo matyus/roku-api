@@ -18,4 +18,8 @@ class Roku
   def active_app
     self.class.get("/query/active-app").parsed_response
   end
+
+  def launch_app(app_id)
+    self.class.post("/launch/#{app_id}")
+  end
 end
