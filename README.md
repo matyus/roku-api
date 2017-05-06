@@ -1,11 +1,10 @@
 # Roku API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This API exists because the CORS policy for the Roku box is configured in such a way that makes it impossible to get any useful callback information using AJAX methods.
 
 ## Getting Started
 
-- Get your Roku box IP Address: `Settings > Network > Wireless (or Wired) > IP address (i.e. `192.168.1.4`)
+- Get your Roku box IP Address: `Settings > Network > Wireless (or Wired) > IP address` (i.e. `192.168.1.4`)
 - Clone this repo and `bundle install`
 - Run `bundle exec rails s`
 - See [`config/routes.rb`](./config/routes.rb) for the available API methods.
@@ -24,9 +23,9 @@ ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-darwin15]
 
 - A Roku box
 - Access to your LAN (Local Area Network)
-- There is barely any information actually being stored, so the default SQLite is fine: See [`app/models/roku_box.rb`](./app/models/roku_box.rb') for details on what info you'll need.
+- There is barely any information actually being stored, so the default SQLite is fine: See [`app/models/roku_box.rb`](./app/models/roku_box.rb) for details on what info you'll need.
 
-## API
+## API Methods
 
 - See [`config/routes.rb`](./config/routes.rb) for the available API methods.
 
@@ -34,7 +33,7 @@ ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-darwin15]
 
 Returns JSON blob:
 
-```json
+```js
 {
   "apps": {
     "app": [
@@ -58,7 +57,7 @@ Returns JSON blob:
 
 ### POST `/active-app`
 
-```json
+```js
 {
   "active_app": {
     "app": "Roku"
@@ -69,11 +68,11 @@ Returns JSON blob:
 ### POST `/keypress/:command`
 
 ```js
-// Nothing useful
+// Nothing useful is returned
 ```
 
 ### POST `/launch-app/:app_id`
 
 ```js
-// Nothing useful
+// Nothing useful is returned
 ```

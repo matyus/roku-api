@@ -1,7 +1,7 @@
 class Roku
   include HTTParty
 
-  def initialize(roku_box, debug = true)
+  def initialize(roku_box, debug = false)
     self.class.debug_output if debug
 
     self.class.base_uri roku_box.base_uri
